@@ -38,7 +38,8 @@ repositories {
 dependencies {
     compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:1.0-SNAPSHOT'
 }
-    
+
+```
 License
 -------
     
