@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.ramimartin.multibluetooth.bluetooth.client.BluetoothClient;
 import com.ramimartin.multibluetooth.bluetooth.server.BluetoothServer;
-import com.ramimartin.multibluetooth.BuildConfig;
 import com.ramimartin.multibluetooth.bus.BondedDevice;
 
 import java.util.ArrayList;
@@ -183,10 +182,6 @@ public class BluetoothManager extends BroadcastReceiver {
         if (mBluetoothAdapter == null) {
             return;
         } else {
-            if(BuildConfig.DEBUG) {
-                Log.e("", " ==> mBluetoothAdapter.isEnabled() : " + mBluetoothAdapter.isEnabled());
-                Log.e("", " ==> mBluetoothAdapter.isDiscovering() : " + isDiscovering());
-            }
             if (mBluetoothAdapter.isEnabled() && isDiscovering()) {
                 Log.e("", "===> mBluetoothAdapter.isDiscovering()");
                 return;
@@ -324,10 +319,6 @@ public class BluetoothManager extends BroadcastReceiver {
     }
 
     public void closeAllConnexion(){
-        if(BuildConfig.DEBUG){
-            Log.e("","===> Bluetooth Lib Destroy");
-        }
-
         mBluetoothAdapter.setName(mBluetoothNameSaved);
 
         try{

@@ -76,12 +76,39 @@ public abstract class BluetoothFragment extends Fragment {
         mBluetoothManager.startDiscovery();
     }
 
+    public boolean isConnected(){
+        return mBluetoothManager.isConnected;
+    }
+
     public void scanAllBluetoothDevice(){
         mBluetoothManager.scanAllBluetoothDevice();
     }
 
+    public void disconnectClient(){
+        mBluetoothManager.disconnectClient();
+    }
+
+    public void disconnectServer(){
+        mBluetoothManager.disconnectServer();
+    }
+
     public void createServeur(String address){
         mBluetoothManager.createServeur(address);
+    }
+
+    public void selectServerMode(){
+        mBluetoothManager.selectServerMode();
+    }
+    public void selectClientMode(){
+        mBluetoothManager.selectClientMode();
+    }
+
+    public BluetoothManager.TypeBluetooth getTypeBluetooth(){
+        return mBluetoothManager.mType;
+    }
+
+    public BluetoothManager.TypeBluetooth getBluetoothMode(){
+        return mBluetoothManager.mType;
     }
 
     public void createClient(String addressMac){
@@ -103,8 +130,10 @@ public abstract class BluetoothFragment extends Fragment {
     public abstract void onBluetoothNotAviable();
 
     public void onEventMainThread(BluetoothDevice device){
-        onBluetoothDeviceFound(device);
-        createServeur(device.getAddress());
+        if(!mBluetoothManager.isNbrMaxReached()){
+            onBluetoothDeviceFound(device);
+            createServeur(device.getAddress());
+        }
     }
 
     public void onEventMainThread(ClientConnectionSuccess event){
@@ -119,11 +148,12 @@ public abstract class BluetoothFragment extends Fragment {
 
     public void onEventMainThread(ServeurConnectionSuccess event){
         mBluetoothManager.isConnected = true;
+        mBluetoothManager.onServerConnectionSuccess(event.mClientAdressConnected);
         onServeurConnectionSuccess();
     }
 
     public void onEventMainThread(ServeurConnectionFail event){
-        mBluetoothManager.isConnected = false;
+        mBluetoothManager.onServerConnectionFailed(event.mClientAdressConnectionFail);
         onServeurConnectionFail();
     }
 
