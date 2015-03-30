@@ -2,10 +2,6 @@
 
 This library allows you to easily create a socket bluetooth connection for multiple android devices with one server and 7 clients max. This library is compatible with the Android SDK 2.3 to 5.1.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=svzu2qd_fOo
-" target="_blank"><img src="http://img.youtube.com/vi/svzu2qd_fOo/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/svzu2qd_fOo/0.jpg)](http://www.youtube.com/watch?v=svzu2qd_fOo)
 
 For documentation and additional information see [the website][1].
