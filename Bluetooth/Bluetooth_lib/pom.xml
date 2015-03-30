@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ramimartin.bluetooth</groupId>
-    <artifactId>AndroidBluetoothLibrary</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>AndroidMultiBluetoothLibrary</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Android Bluetooth Library</name>
+    <name>Android Multi Bluetooth Library</name>
 
     <licenses>
         <license>
@@ -16,8 +16,8 @@
 
     <distributionManagement>
         <repository>
-            <id>arissa34-ftp</id>
-            <url>ftp://arissa34@ftpperso.free.fr/maven2</url>
+            <id>sfdn-ftp</id>
+            <url>ftp://rami@sfdn.ddns.net/maven2</url>
         </repository>
     </distributionManagement>
 
@@ -41,6 +41,16 @@
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
