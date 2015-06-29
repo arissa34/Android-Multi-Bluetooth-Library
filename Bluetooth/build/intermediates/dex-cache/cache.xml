@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/home/rei/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/pre-dexed/debug/butterknife-6.1.0-16521f5a6dea364aafec8ff2b6e0c4f7ad358ea7.jar" />
-    </item>
-    <item
         jar="/home/rei/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.2.0/8957e80562a7e6ac5d9421e46e0898336c06c307/eventbus-2.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -51,6 +44,20 @@
         <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/eventbus-2.2.0-28de9a205e89c13f519e5e2448cb03eb24d9c6b7.jar" />
     </item>
     <item
+        jar="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/exploded-aar/Bluetooth/Bluetooth_lib/unspecified/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="014060c8a1378988370fa3ab70b497c2c6a44366">
+        <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/pre-dexed/debug/classes-4f970baa3ba43b5a06a584a3cbdad42c7d37c7dc.jar" />
+    </item>
+    <item
+        jar="/home/rei/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/pre-dexed/debug/butterknife-6.1.0-16521f5a6dea364aafec8ff2b6e0c4f7ad358ea7.jar" />
+    </item>
+    <item
         jar="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
         jumboMode="false"
         revision="19.1.0"
@@ -60,15 +67,8 @@
     <item
         jar="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/exploded-aar/Bluetooth/Bluetooth_lib/unspecified/classes.jar"
         jumboMode="false"
-        revision="19.1.0"
-        sha1="014060c8a1378988370fa3ab70b497c2c6a44366">
-        <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/pre-dexed/debug/classes-4f970baa3ba43b5a06a584a3cbdad42c7d37c7dc.jar" />
-    </item>
-    <item
-        jar="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/exploded-aar/Bluetooth/Bluetooth_lib/unspecified/classes.jar"
-        jumboMode="false"
         revision="22.0.1"
-        sha1="014060c8a1378988370fa3ab70b497c2c6a44366">
+        sha1="c5c07cdea1ee02e7d5b61ea525feb6389192de1f">
         <dex dex="/home/rei/Android-Multi-Bluetooth-Library.git/Bluetooth/BluetoothService_sample/build/intermediates/pre-dexed/debug/classes-4f970baa3ba43b5a06a584a3cbdad42c7d37c7dc.jar" />
     </item>
     <item

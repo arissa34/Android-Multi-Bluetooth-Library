@@ -8,6 +8,9 @@ import android.util.Log;
 
 import com.ramimartin.multibluetooth.R;
 import com.ramimartin.multibluetooth.bluetooth.mananger.BluetoothManager;
+import com.ramimartin.multibluetooth.bus.BluetoothStartDiscovery;
+
+import de.greenrobot.event.EventBus;
 
 public class EnableBluetoothDiscoveryActivity extends Activity {
 
@@ -43,7 +46,7 @@ public class EnableBluetoothDiscoveryActivity extends Activity {
                     Log.d(TAG, "BluetoothManager.BLUETOOTH_REQUEST_ACCEPTED");
 
                     Log.e(TAG, "onBluetoothStartDiscovery()");
-                    //onBluetoothStartDiscovery();
+                    EventBus.getDefault().post(new BluetoothStartDiscovery());
 
                     Intent intent1 = new Intent(getApplicationContext(),BluetoothManager.class);
                     intent1.setAction("onBluetoothStartDiscovery");
