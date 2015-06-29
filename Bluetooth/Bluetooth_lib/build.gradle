@@ -1,25 +1,24 @@
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 18
+    compileSdkVersion 19
     buildToolsVersion "19.1"
-
     lintOptions {
         abortOnError false
     }
-
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
     }
-
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 16
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
+    }
+    productFlavors {
     }
 }
 
