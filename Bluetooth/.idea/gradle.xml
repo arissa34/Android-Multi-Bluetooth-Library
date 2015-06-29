@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/BluetoothService_sample" />
             <option value="$PROJECT_DIR$/Bluetooth_lib" />
             <option value="$PROJECT_DIR$/Bluetooth_sample" />
           </set>
