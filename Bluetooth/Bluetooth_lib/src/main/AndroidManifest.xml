@@ -1,6 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ramimartin.multibluetooth">
+    package="com.ramimartin.multibluetooth" >
 
-    <application />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application>
+        <activity
+            android:name=".activity.EnableBluetoothDiscoveryActivity"
+            android:label="@string/title_activity_enable_bluetooth_discovery" >
+        </activity>
+    </application>
 
 </manifest>

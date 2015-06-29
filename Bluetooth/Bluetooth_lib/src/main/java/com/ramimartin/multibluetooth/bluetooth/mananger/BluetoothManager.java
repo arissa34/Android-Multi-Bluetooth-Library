@@ -1,6 +1,7 @@
 package com.ramimartin.multibluetooth.bluetooth.mananger;
 
 import android.app.Activity;
+import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
+import com.ramimartin.multibluetooth.activity.EnableBluetoothDiscoveryActivity;
 import com.ramimartin.multibluetooth.bluetooth.client.BluetoothClient;
 import com.ramimartin.multibluetooth.bluetooth.server.BluetoothServer;
 import com.ramimartin.multibluetooth.bus.BondedDevice;
@@ -46,6 +48,7 @@ public class BluetoothManager extends BroadcastReceiver {
     private static int BLUETOOTH_NBR_CLIENT_MAX = 7;
 
     private Activity mActivity;
+    private Service mService;
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothClient mBluetoothClient;
 
@@ -61,7 +64,25 @@ public class BluetoothManager extends BroadcastReceiver {
     private String mBluetoothNameSaved;
 
     public BluetoothManager(Activity activity) {
+        mService = null;
         mActivity = activity;
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothNameSaved = mBluetoothAdapter.getName();
+        mBluetoothIsEnableOnStart = mBluetoothAdapter.isEnabled();
+        mType = TypeBluetooth.None;
+        isConnected = false;
+        mNbrClientConnection = 0;
+        mAdressListServerWaitingConnection = new ArrayList<String>();
+        mServeurWaitingConnectionList = new HashMap<String, BluetoothServer>();
+        mServeurConnectedList = new ArrayList<BluetoothServer>();
+        mServeurThreadList = new HashMap<String, Thread>();
+        //setTimeDiscoverable(BLUETOOTH_TIME_DICOVERY_300_SEC);
+    }
+
+
+    public BluetoothManager(Service service) {
+        mService = service;
+        mActivity = null;
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         mBluetoothNameSaved = mBluetoothAdapter.getName();
         mBluetoothIsEnableOnStart = mBluetoothAdapter.isEnabled();
@@ -187,23 +208,39 @@ public class BluetoothManager extends BroadcastReceiver {
                 return;
             } else {
                 Log.e("", "===> startDiscovery");
-                Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, mTimeDiscoverable);
-                mActivity.startActivityForResult(discoverableIntent, REQUEST_DISCOVERABLE_CODE);
+                if (mActivity != null) {
+                    Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                    discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, mTimeDiscoverable);
+                    mActivity.startActivityForResult(discoverableIntent, REQUEST_DISCOVERABLE_CODE);
+                }
+                else {
+                    Intent intent = new Intent(mService.getApplicationContext(), EnableBluetoothDiscoveryActivity.class);
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, mTimeDiscoverable);
+                    mService.startActivity(intent);
+                }
             }
         }
     }
 
     public void scanAllBluetoothDevice() {
         IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        mActivity.registerReceiver(this, intentFilter);
+        if (mActivity != null)
+            mActivity.registerReceiver(this, intentFilter);
+        else
+            mService.registerReceiver(this, intentFilter);
         mBluetoothAdapter.startDiscovery();
     }
 
     public void createClient(String addressMac) {
         if(mType == TypeBluetooth.Client) {
             IntentFilter bondStateIntent = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-            mActivity.registerReceiver(this, bondStateIntent);
+            if (mActivity != null)
+                mActivity.registerReceiver(this, bondStateIntent);
+            else
+                mService.registerReceiver(this, bondStateIntent);
             mBluetoothClient = new BluetoothClient(mBluetoothAdapter, addressMac);
             new Thread(mBluetoothClient).start();
         }
@@ -216,7 +253,10 @@ public class BluetoothManager extends BroadcastReceiver {
             threadServer.start();
             setServerWaitingConnection(address, mBluetoothServer, threadServer);
             IntentFilter bondStateIntent = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-            mActivity.registerReceiver(this, bondStateIntent);
+            if (mActivity != null)
+                mActivity.registerReceiver(this, bondStateIntent);
+            else
+                mService.registerReceiver(this, bondStateIntent);
             Log.e("", "===> createServeur address : " + address);
         }
     }
@@ -267,6 +307,8 @@ public class BluetoothManager extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+        Log.e("BluetoohManager", "onReceive() " + intent.getAction());
+
         if (intent.getAction().equals(BluetoothDevice.ACTION_FOUND)) {
             if((mType == TypeBluetooth.Client && !isConnected)
                     || (mType == TypeBluetooth.Server && !mAdressListServerWaitingConnection.contains(device.getAddress()))){
@@ -322,7 +364,10 @@ public class BluetoothManager extends BroadcastReceiver {
         mBluetoothAdapter.setName(mBluetoothNameSaved);
 
         try{
-            mActivity.unregisterReceiver(this);
+            if (mActivity != null)
+                mActivity.unregisterReceiver(this);
+            else
+                mService.unregisterReceiver(this);
         }catch(Exception e){}
 
         cancelDiscovery();

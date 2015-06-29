@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MiltBluetooth</string>
+    <string name="title_activity_enable_bluetooth_discovery">Enable Bluetooth Discovery</string>
 </resources>
