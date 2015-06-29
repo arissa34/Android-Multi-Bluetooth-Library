@@ -2,7 +2,7 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.1"
+    buildToolsVersion '22.0.1'
     lintOptions {
         abortOnError false
     }
@@ -14,7 +14,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 19
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -25,4 +25,10 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'de.greenrobot:eventbus:2.2.0'
+}
+
+repositories {
+    maven {
+        url "http://sfdn.ddns.net/maven2/"
+    }
 }

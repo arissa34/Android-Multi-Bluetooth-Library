@@ -1,19 +1,17 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1"
-
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
     }
-
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 19
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -23,12 +21,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':Bluetooth_lib')
     compile 'de.greenrobot:eventbus:2.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
+}
+
+repositories {
+    maven {
+        url "http://sfdn.ddns.net/maven2/"
+    }
 }
