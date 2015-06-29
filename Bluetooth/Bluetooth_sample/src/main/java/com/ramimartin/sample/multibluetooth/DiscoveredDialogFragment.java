@@ -12,8 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.ramimartin.sample.multibluetooth.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

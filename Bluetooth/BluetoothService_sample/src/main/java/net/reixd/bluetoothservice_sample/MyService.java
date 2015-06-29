@@ -1,6 +1,5 @@
 package net.reixd.bluetoothservice_sample;
 
-import android.app.Service;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.IBinder;
