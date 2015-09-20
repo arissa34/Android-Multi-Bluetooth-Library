@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BluetoothService_sample</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_start_bluetooth_service">Start Bluetooth Service</string>
+</resources>
