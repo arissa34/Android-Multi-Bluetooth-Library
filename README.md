@@ -55,4 +55,4 @@ License
     */
 
 [1]: http://arissa34.github.io/Android-Multi-Bluetooth-Library/
-[2]: http://sfdn.ddns.net/maven2/com/ramimartin/multibluetooth/AndroidMultiBluetoothLibrary/1.1-SNAPSHOT/AndroidMultiBluetoothLibrary-1.1-20150330.103251-1.jar
+[2]: http://93.24.106.19/maven2/com/ramimartin/multibluetooth/AndroidMultiBluetoothLibrary/1.2-SNAPSHOT/AndroidMultiBluetoothLibrary-1.2-20150921.001610-1.jar
