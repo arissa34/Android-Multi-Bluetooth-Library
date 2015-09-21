@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ramimartin.bluetooth</groupId>
+    <groupId>com.ramimartin.multibluetooth</groupId>
     <artifactId>AndroidMultiBluetoothLibrary</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Android Multi Bluetooth Library</name>
-
+    
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -13,14 +13,14 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-
+    
     <distributionManagement>
         <repository>
             <id>sfdn-ftp</id>
-            <url>ftp://rami@sfdn.ddns.net/maven2</url>
+            <url>ftp://rami@192.168.1.99/MCL/maven2</url>
         </repository>
     </distributionManagement>
-
+    
     <dependencies>
         <dependency>
             <groupId>de.greenrobot</groupId>
@@ -39,15 +39,15 @@
             <version>r6</version>
         </dependency>
     </dependencies>
-
+    
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
