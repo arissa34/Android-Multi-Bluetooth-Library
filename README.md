@@ -16,7 +16,7 @@ Download __[the latest JAR][2]__  or grab via Maven:
     <dependency>
       <groupId>com.ramimartin.multibluetooth</groupId>
       <artifactId>AndroidMultiBluetoothLibrary</artifactId>
-      <version>1.1-SNAPSHOT</version>
+      <version>1.2-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:1.1-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:1.2-SNAPSHOT'
 }
 
 ```
