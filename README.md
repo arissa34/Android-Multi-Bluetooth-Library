@@ -22,7 +22,7 @@ Download __[the latest JAR][2]__  or grab via Maven:
     <repository>
       <id>sfdn-ftp</id>
       <name>Sfdn Ftp</name>
-      <url>http://sfdn.com/maven2</url>
+      <url>http://sfdn.ddns.net/maven2</url>
     </repository>
   </repositories>
 ```
@@ -30,7 +30,7 @@ or Gradle:
 ```groovy
 repositories {
     maven {
-        url "http://sfdn.com/maven2/"
+        url "http://sfdn.ddns.net/maven2/"
     }
     mavenCentral()
 }
