@@ -5,7 +5,7 @@
     <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Android Multi Bluetooth Library</name>
-    
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -13,14 +13,14 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+
     <distributionManagement>
         <repository>
             <id>sfdn-ftp</id>
             <url>ftp://rami@192.168.1.99/MCL/maven2</url>
         </repository>
     </distributionManagement>
-    
+
     <dependencies>
         <dependency>
             <groupId>de.greenrobot</groupId>
@@ -39,7 +39,7 @@
             <version>r6</version>
         </dependency>
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>

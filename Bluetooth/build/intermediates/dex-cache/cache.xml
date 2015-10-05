@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Rami/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/butterknife-6.1.0-387f09be8ed6c5a23e1a05385c8879e8ab0cae9d.jar" />
+    </item>
+    <item
+        jar="/Users/Rami/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/support-v4-19.1.0-19a87dc8936e30b876db90387cfb188636144644.jar" />
+    </item>
+    <item
+        jar="/Users/Rami/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.2.0/8957e80562a7e6ac5d9421e46e0898336c06c307/eventbus-2.2.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8957e80562a7e6ac5d9421e46e0898336c06c307">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/eventbus-2.2.0-3b522cf6b2c2bbb4e56aa1ee994b0195dbb9ce81.jar" />
+    </item>
+    <item
+        jar="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/exploded-aar/Bluetooth/Bluetooth_lib/unspecified/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="afb99fcf48fc08dc110ce7d92ebc9c31ede58439">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/classes-b14cb0128a82a0e736bb005624b22a1876cdae74.jar" />
+    </item>
+    <item
+        jar="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/classes-40964443af8e78e387f401b1da290c4490f4ca2d.jar" />
+    </item>
+
+</items>

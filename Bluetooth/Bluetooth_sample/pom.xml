@@ -8,9 +8,9 @@
 
     <repositories>
         <repository>
-            <id>arissa34-ftp</id>
-            <name>Arissa Ftp</name>
-            <url>http://arissa34.free.fr/maven2</url>
+            <id>sfdn-ftp</id>
+            <name>rami</name>
+            <url>http://192.168.1.99/maven2</url>
         </repository>
     </repositories>
 
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.jakewharton</groupId>
             <artifactId>butterknife</artifactId>
-            <version>5.0.0</version>
+            <version>6.1.0</version>
         </dependency>
         <dependency>
             <groupId>de.greenrobot</groupId>
@@ -37,9 +37,9 @@
             <version>r6</version>
         </dependency>
         <dependency>
-            <groupId>com.ramimartin.bluetooth</groupId>
-            <artifactId>AndroidBluetoothLibrary</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>com.ramimartin.multibluetooth</groupId>
+            <artifactId>AndroidMultiBluetoothLibrary</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
