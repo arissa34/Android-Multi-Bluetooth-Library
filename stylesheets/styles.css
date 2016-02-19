@@ -183,6 +183,26 @@ footer {
   position:fixed;
   bottom:50px;
 }
+.helpUsDiv{
+  background: black; text-align: left;
+}
+.helpUs{
+  color:white;
+  margin:0 8px 0 170px;
+  padding:18px 0;
+  font-size:15px;
+  font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+}
+
+.btcQrcode{
+  margin:-45px 0 0 15px;
+  position: absolute;
+}
+
+.btcAddress{
+  height:100px;
+  margin: 20px 8px 0 160px;
+}
 
 @media print, screen and (max-width: 960px) {
   
@@ -234,6 +254,29 @@ footer {
   
   pre, code {
     word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 580px) {
+.helpUsDiv{
+  background: black; text-align: center;
+}
+  .helpUs{
+    margin:0 8px 0 8px;
+    padding:18px 0;
+    position:static;
+    font-size:18px;
+    font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  }
+
+  .btcQrcode{
+    margin:10px 0 20px 0;
+    position:static;
+  }
+
+  .btcAddress{
+    height: auto;
+    margin: 10px 8px 25px 8px;
   }
 }
 
