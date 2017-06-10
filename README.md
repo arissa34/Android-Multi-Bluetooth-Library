@@ -57,4 +57,4 @@ License
 ![btc beer](http://arissa34.github.io/Android-Multi-Bluetooth-Library/images/btc/btc_beer.png)
 
 [1]: http://arissa34.github.io/Android-Multi-Bluetooth-Library/
-[2]: http://88.183.83.139:1180/maven2/com/ramimartin/multibluetooth/AndroidMultiBluetoothLibrary/1.2-SNAPSHOT/AndroidMultiBluetoothLibrary-1.2-20151005.002436-2.jar
+[2]: https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-1.3-SNAPSHOT.jar
