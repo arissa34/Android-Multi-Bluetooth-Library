@@ -44,7 +44,7 @@ dependencies {
 
 ```
 
-###This library is used in this application :
+##This library is used in this application :
 [![googleplay](https://github.com/arissa34/Android-Multi-Bluetooth-Library/blob/gh-pages/images/domino.png?raw=true)](https://play.google.com/store/apps/details?id=com.drgames.domino)
 
 If you like this library please download and give me 5 stars ;)
