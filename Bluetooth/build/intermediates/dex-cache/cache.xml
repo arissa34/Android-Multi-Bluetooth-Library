@@ -3,12 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_lib/build/intermediates/bundles/default/classes.jar"
+        jar="/Users/Rami/.gradle/caches/modules-2/files-2.1/com.ramimartin.multibluetooth/AndroidMultiBluetoothLibrary/2.0.1-SNAPSHOT/37c4dc60010d68417e23460a95d29d4364841dc8/AndroidMultiBluetoothLibrary-2.0.1-SNAPSHOT.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="ddc323c83b50235eb9cfde3053a7a4322180bd85">
-        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/classes_a163f5ff6a4bb8b8841a9337e4dbbc926fa95276.jar" />
+        sha1="37c4dc60010d68417e23460a95d29d4364841dc8">
+        <dex dex="/Users/Rami/Android/BitBucket/Android-Multi-Bluetooth-Library/Bluetooth/Bluetooth_sample/build/intermediates/pre-dexed/debug/AndroidMultiBluetoothLibrary-2.0.1-SNAPSHOT_45351844b5ecc0b47f6bf425166a67f6d5269d1e.jar" />
     </item>
 
 </items>

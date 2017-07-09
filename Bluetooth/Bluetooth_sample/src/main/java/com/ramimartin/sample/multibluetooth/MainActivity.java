@@ -132,7 +132,7 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
     @OnClick(R.id.send)
     public void send() {
         if (isConnected()) {
-            sendMessage(mEditText.getText().toString());
+            sendMessageStringToAll(mEditText.getText().toString());
             setLogText("===> Send : " + mEditText.getText().toString());
         }
     }

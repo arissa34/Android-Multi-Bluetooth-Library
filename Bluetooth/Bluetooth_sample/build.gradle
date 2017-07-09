@@ -35,9 +35,10 @@ android {
 dependencies {
     //compile fileTree(include: ['*.jar'], dir: 'libs')
     //compile project(':Bluetooth_lib')
+
     compile 'de.greenrobot:eventbus:2.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.1-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
 }
 
 repositories {

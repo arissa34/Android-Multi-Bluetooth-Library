@@ -110,8 +110,23 @@ public abstract class BluetoothActivity extends Activity {
         mBluetoothManager.createClient(addressMac);
     }
 
-    public void sendMessage(String message){
+    public void sendMessageStringToAll(String message){
         mBluetoothManager.sendStringMessageForAll(message);
+    }
+    public void sendMessageString(String adressMacTarget, String message){
+        mBluetoothManager.sendStringMessage(adressMacTarget, message);
+    }
+    public void sendMessageObjectToAll(Object message){
+        mBluetoothManager.sendObjectForAll(message);
+    }
+    public void sendMessageObject(String adressMacTarget, Object message){
+        mBluetoothManager.sendObject(adressMacTarget, message);
+    }
+    public void sendMessageBytesForAll(byte[] message){
+        mBluetoothManager.sendBytesForAll(message);
+    }
+    public void sendMessageBytes(String adressMacTarget, byte[] message){
+        mBluetoothManager.sendBytes(adressMacTarget, message);
     }
 
     public boolean isConnected(){
