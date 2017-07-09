@@ -46,7 +46,7 @@ dependencies {
 
 ### This library is used in this application :
 [![googleplay](https://github.com/arissa34/Android-Multi-Bluetooth-Library/blob/gh-pages/images/domino.png?raw=true)](https://play.google.com/store/apps/details?id=com.drgames.domino)
-
+[![googleplay](https://github.com/arissa34/Android-Multi-Bluetooth-Library/blob/gh-pages/images/P4.png?raw=true)](https://play.google.com/store/apps/details?id=com.drgames.puissance4)
 If you like this library please download and give me 5 stars ;)
 
 License
