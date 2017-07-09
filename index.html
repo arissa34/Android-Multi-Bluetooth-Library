@@ -45,7 +45,7 @@
             </p>
             <p>After finding a device, this library create the UUID following this code :</p>
 
-            <pre class="prettyprint">UUID.fromString("e0917680-d427-11e4-8830-" + mAddress.replace(":", ""));</pre>
+            <pre class="prettyprint">UUID.fromString("e0917680-d427-11e4-8830-" + mMacAddress.replace(":", ""));</pre>
 
 <p>To make it work an simple implementation with extended BluetoothActivity or FragmentActivity.</p>
 <pre class="prettyprint">
@@ -57,6 +57,11 @@ public class MainActivity extends BluetoothActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    public String setUUIDappIdentifier() {
+        return "e0917680-d427-11e4-8830";
+    }
+    
     @Override
     public int myNbrClientMax() {
         return 7;
@@ -118,8 +123,17 @@ selectClientMode();</code></pre>
 <pre class="prettyprint"><code>scanAllBluetoothDevice();</code></pre>
 <p>To connect the client to your server call this method : </p>
 <pre class="prettyprint"><code>createClient(mServerAddressMac);</code></pre>
-<p>To Send a message call this method : </p>
-<pre class="prettyprint"><code>sendMessage("Hello");</code></pre>
+            <p><b>You can send three type of message</b></p>
+            
+<p>To send bytes array message :</p> 
+<pre class="prettyprint"><code>sendMessageBytesForAll("Hello".getBytes());</code></pre>
+            
+<p>To send a String message :</p> 
+<pre class="prettyprint"><code>sendMessageStringToAll("Hello");</code></pre>
+            
+<p>To send an Serielizable Object :</p> 
+<pre class="prettyprint"><code>sendMessageObjectToAll(mObject);</code></pre>
+            
 <p>And if you want to disconnect : </p>
 <pre class="prettyprint"><code>disconnectServer();</code></pre> <p>or</p> <pre class="prettyprint"><code>disconnectClient();</code></pre>
             <h3>
@@ -137,7 +151,7 @@ selectClientMode();</code></pre>
   background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));border-radius: 5px;
   border: 1px solid #d2d2d2;
-  box-shadow: inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.1-SNAPSHOT.jar"><strong>Android Multi Bluetooth Library V2.0.1 JAR</strong></a><br><br>
+  box-shadow: inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.3-SNAPSHOT.jar"><strong>Android Multi Bluetooth Library V2.0.3 JAR</strong></a><br><br>
             <p></p>
             <p>The source code to the library and sample application as well as this website is <a target="_blank" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library">available on GitHub</a>.</p>
 <h4>MAVEN</h4>
@@ -146,7 +160,7 @@ selectClientMode();</code></pre>
     &lt;dependency>
       &lt;groupId>com.ramimartin.multibluetooth&lt;/groupId>
       &lt;artifactId>AndroidMultiBluetoothLibrary&lt;/artifactId>
-      &lt;version>2.0.1-SNAPSHOT&lt;/version>
+      &lt;version>2.0.3-SNAPSHOT&lt;/version>
     &lt;/dependency>
   &lt;/dependencies>
 
@@ -166,7 +180,7 @@ selectClientMode();</code></pre>
 }
 
 dependencies {
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.1-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
 }</code></pre>
 
 
