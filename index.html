@@ -105,8 +105,35 @@ public class MainActivity extends BluetoothActivity {
 
 <h4>AndroidManifest.xml</h4>
 <pre class="prettyprint"><code>&lt;uses-permission android:name="android.permission.BLUETOOTH"/>
-&lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/></pre></code>
+&lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+&lt;!-- For android sdk >= 6.0 -->
+    &lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCTION"/>
+    &lt;!-- For android sdk >= 6.0 -->
+</pre></code>
+<p>For android 6 and upper you will need more permission to scan bluetooth devices</p>
+<pre class="prettyprint"><code>
 
+    private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
+            permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_COARSE_LOCATION);
+            }
+        }
+        
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_COARSE_LOCATION: {
+                // TODO stuff if you need
+            }
+        }
+    }
+</pre></code>
             <h3>
                <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
                 <span class="octicon octicon-link"></span>
