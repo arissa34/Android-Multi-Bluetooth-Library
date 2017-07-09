@@ -17,7 +17,7 @@ Download __[the latest JAR][2]__  or grab via Maven:
     <dependency>
       <groupId>com.ramimartin.multibluetooth</groupId>
       <artifactId>AndroidMultiBluetoothLibrary</artifactId>
-      <version>2.0.1-SNAPSHOT</version>
+      <version>2.0.3-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.1-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
 }
 
 ```
@@ -63,4 +63,4 @@ License
     */
     
 [1]: http://arissa34.github.io/Android-Multi-Bluetooth-Library/
-[2]: https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.1-SNAPSHOT.jar
+[2]: https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.3-SNAPSHOT.jar
