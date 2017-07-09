@@ -74,6 +74,11 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
     }
 
     @Override
+    public String setUUIDappIdentifier() {
+        return "f520cf2c-6487-11e7-907b";
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case PERMISSION_REQUEST_COARSE_LOCATION: {

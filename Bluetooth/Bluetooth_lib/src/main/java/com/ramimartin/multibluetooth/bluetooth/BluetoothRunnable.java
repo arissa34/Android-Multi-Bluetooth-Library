@@ -5,7 +5,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 import android.util.Log;
 
-import com.google.common.io.ByteStreams;
 import com.ramimartin.multibluetooth.bluetooth.manager.BluetoothManager;
 import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorBytes;
 import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorString;

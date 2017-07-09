@@ -9,10 +9,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
-import android.nfc.Tag;
 import android.util.Log;
 
-import com.ramimartin.multibluetooth.R;
 import com.ramimartin.multibluetooth.bluetooth.client.BluetoothClient;
 import com.ramimartin.multibluetooth.bluetooth.server.BluetoothServer;
 import com.ramimartin.multibluetooth.bus.BondedDevice;
@@ -24,7 +22,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -117,9 +114,9 @@ public class BluetoothManager extends BroadcastReceiver {
         Resources res = mActivity.getResources();
         int placeLeft = (getNbrClientMax() - mNbrClientConnection);
         String appName = getApplicationName();
-        String blthName = res.getQuantityString(R.plurals.blth_name, placeLeft, placeLeft, android.os.Build.MODEL, appName);
-        mBluetoothAdapter.setName(blthName);
-        //mBluetoothAdapter.setName("Server " + (getNbrClientMax() - mNbrClientConnection) + " places available " + android.os.Build.MODEL);
+        //String blthName = res.getQuantityString(R.plurals.blth_name, placeLeft, placeLeft, android.os.Build.MODEL, appName);
+        //mBluetoothAdapter.setName(blthName);
+        mBluetoothAdapter.setName("Server " + (getNbrClientMax() - mNbrClientConnection) + " places available " + android.os.Build.MODEL);
     }
 
     public String getApplicationName() {

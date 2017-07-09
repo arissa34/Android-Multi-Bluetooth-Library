@@ -27,6 +27,7 @@ public abstract class BluetoothFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mBluetoothManager = new BluetoothManager(getActivity());
         checkBluetoothAviability();
+        mBluetoothManager.setUUIDappIdentifier(setUUIDappIdentifier());
         mBluetoothManager.setNbrClientMax(myNbrClientMax());
     }
 
@@ -119,6 +120,7 @@ public abstract class BluetoothFragment extends Fragment {
         mBluetoothManager.sendStringMessageForAll(message);
     }
 
+    public abstract String setUUIDappIdentifier();
     public abstract int myNbrClientMax();
     public abstract void onBluetoothDeviceFound(BluetoothDevice device);
     public abstract void onClientConnectionSuccess();

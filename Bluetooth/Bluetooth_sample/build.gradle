@@ -3,6 +3,13 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
 
+    lintOptions {
+        abortOnError false
+        disable "ResourceType"
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+        disable 'InvalidPackage'
+    }
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
@@ -26,8 +33,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':Bluetooth_lib')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile project(':Bluetooth_lib')
     compile 'de.greenrobot:eventbus:2.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.1-SNAPSHOT'
+}
+
+repositories {
+    maven {
+        url "http://drgames.fr/maven2/"
+    }
+    mavenCentral()
 }

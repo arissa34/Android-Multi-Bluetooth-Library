@@ -27,6 +27,7 @@ public abstract class BluetoothFragmentActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         mBluetoothManager = new BluetoothManager(this);
         checkBluetoothAviability();
+        mBluetoothManager.setUUIDappIdentifier(setUUIDappIdentifier());
     }
 
     @Override
@@ -117,6 +118,7 @@ public abstract class BluetoothFragmentActivity extends FragmentActivity {
         mBluetoothManager.sendStringMessageForAll(message);
     }
 
+    public abstract String setUUIDappIdentifier();
     public abstract int myNbrClientMax();
     public abstract void onBluetoothDeviceFound(BluetoothDevice device);
     public abstract void onClientConnectionSuccess();

@@ -27,6 +27,7 @@ public abstract class BluetoothActivity extends Activity {
         super.onCreate(savedInstanceState);
         mBluetoothManager = new BluetoothManager(this);
         checkBluetoothAviability();
+        mBluetoothManager.setUUIDappIdentifier(setUUIDappIdentifier());
     }
 
     @Override
@@ -117,6 +118,7 @@ public abstract class BluetoothActivity extends Activity {
         return mBluetoothManager.isConnected;
     }
 
+    public abstract String setUUIDappIdentifier();
     public abstract int myNbrClientMax();
     public abstract void onBluetoothDeviceFound(BluetoothDevice device);
     public abstract void onClientConnectionSuccess();

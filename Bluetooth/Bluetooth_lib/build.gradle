@@ -6,6 +6,10 @@ android {
 
     lintOptions {
         abortOnError false
+        disable "ResourceType"
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+        disable 'InvalidPackage'
     }
 
     packagingOptions {
@@ -22,7 +26,6 @@ android {
         versionName "1.0"
     }
 }
-
 dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'de.greenrobot:eventbus:2.2.1'
