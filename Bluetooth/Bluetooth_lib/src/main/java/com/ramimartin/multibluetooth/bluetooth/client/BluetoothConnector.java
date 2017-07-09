@@ -3,6 +3,7 @@ package com.ramimartin.multibluetooth.bluetooth.client;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.os.Build;
 import android.util.Log;
 
 import java.io.IOException;
@@ -60,11 +61,11 @@ public class BluetoothConnector {
                     success = true;
                     break;
                 } catch (FallbackException e1) {
-                    Log.w("BT", "Could not initialize FallbackBluetoothSocket classes.", e);
+                    Log.e("BT", "Could not initialize FallbackBluetoothSocket classes.", e);
                 } catch (InterruptedException e1) {
-                    Log.w("BT", e1.getMessage(), e1);
+                    Log.e("BT", e1.getMessage(), e1);
                 } catch (IOException e1) {
-                    Log.w("BT", "Fallback failed. Cancelling.", e1);
+                    Log.e("BT", "Fallback failed. Cancelling.", e1);
                 }
             }
         }
@@ -89,11 +90,26 @@ public class BluetoothConnector {
         if (secure) {
             tmp = device.createRfcommSocketToServiceRecord(uuid);
         } else {
-            tmp = device.createInsecureRfcommSocketToServiceRecord(uuid);
+            tmp =  createInsecureRfcommSocketToServiceRecord(this.device, uuid);
+            //tmp = device.createInsecureRfcommSocketToServiceRecord(uuid);
         }
         bluetoothSocket = new NativeBluetoothSocket(tmp);
 
         return true;
+    }
+
+    private BluetoothSocket createInsecureRfcommSocketToServiceRecord(BluetoothDevice device, UUID uuid) throws IOException {
+        if(Build.VERSION.SDK_INT >= 10){
+            try {
+                final Method  m = device.getClass().getMethod("createInsecureRfcommSocketToServiceRecord", new Class[] { UUID.class });
+                return (BluetoothSocket) m.invoke(device, uuid);
+            } catch (Exception e) {
+                Log.e("BluetoothConnector", "Could not create Insecure RFComm Connection",e);
+            }
+            return  device.createRfcommSocketToServiceRecord(uuid);
+        }else{
+            return device.createInsecureRfcommSocketToServiceRecord(uuid);
+        }
     }
 
     public void close() {
@@ -176,6 +192,7 @@ public class BluetoothConnector {
 
         public FallbackBluetoothSocket(BluetoothSocket tmp) throws FallbackException {
             super(tmp);
+
             try {
                 Class<?> clazz = tmp.getRemoteDevice().getClass();
                 Class<?>[] paramTypes = new Class<?>[]{Integer.TYPE};

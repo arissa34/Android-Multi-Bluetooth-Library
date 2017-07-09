@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="guava-22.0-android">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/22.0-android/7b2fc7ef242f35bc2c9a3b816ed846c9345e3f95/guava-22.0-android.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/22.0-android/25e40cc3486c5f662b628de5950817fd921c0cbc/guava-22.0-android-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

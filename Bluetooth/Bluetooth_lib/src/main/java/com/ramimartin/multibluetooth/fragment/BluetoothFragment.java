@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.ramimartin.multibluetooth.bluetooth.mananger.BluetoothManager;
-import com.ramimartin.multibluetooth.bus.BluetoothCommunicator;
+import com.ramimartin.multibluetooth.bluetooth.manager.BluetoothManager;
+import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorString;
 import com.ramimartin.multibluetooth.bus.BondedDevice;
 import com.ramimartin.multibluetooth.bus.ClientConnectionFail;
 import com.ramimartin.multibluetooth.bus.ClientConnectionSuccess;
@@ -85,11 +85,11 @@ public abstract class BluetoothFragment extends Fragment {
     }
 
     public void disconnectClient(){
-        mBluetoothManager.disconnectClient();
+        mBluetoothManager.disconnectClient(true);
     }
 
     public void disconnectServer(){
-        mBluetoothManager.disconnectServer();
+        mBluetoothManager.disconnectServer(true);
     }
 
     public void createServeur(String address){
@@ -116,7 +116,7 @@ public abstract class BluetoothFragment extends Fragment {
     }
 
     public void sendMessage(String message){
-        mBluetoothManager.sendMessage(message);
+        mBluetoothManager.sendStringMessageForAll(message);
     }
 
     public abstract int myNbrClientMax();
@@ -157,7 +157,7 @@ public abstract class BluetoothFragment extends Fragment {
         onServeurConnectionFail();
     }
 
-    public void onEventMainThread(BluetoothCommunicator event){
+    public void onEventMainThread(BluetoothCommunicatorString event){
         onBluetoothCommunicator(event.mMessageReceive);
     }
 

@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.ToggleButton;
 
 import com.ramimartin.multibluetooth.activity.BluetoothFragmentActivity;
-import com.ramimartin.multibluetooth.bluetooth.mananger.BluetoothManager;
+import com.ramimartin.multibluetooth.bluetooth.manager.BluetoothManager;
 
 import java.util.ArrayList;
 import java.util.List;

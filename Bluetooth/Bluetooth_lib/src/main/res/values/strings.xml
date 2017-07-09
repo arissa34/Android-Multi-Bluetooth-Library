@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MiltBluetooth</string>
+
+    <plurals name="blth_name">
+        <item quantity="zero">%3$s %2$s : no place left</item>
+        <item quantity="one">%3$s %2$s : %1$d place left</item>
+        <item quantity="other">%3$s %2$s : %1$d places left</item>
+    </plurals>
+
 </resources>

@@ -1,128 +1,81 @@
 package com.ramimartin.multibluetooth.bluetooth.client;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
 import android.util.Log;
 
-import com.ramimartin.multibluetooth.bus.BluetoothCommunicator;
+import com.ramimartin.multibluetooth.bluetooth.BluetoothRunnable;
+import com.ramimartin.multibluetooth.bluetooth.manager.BluetoothManager;
 import com.ramimartin.multibluetooth.bus.ClientConnectionFail;
 import com.ramimartin.multibluetooth.bus.ClientConnectionSuccess;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.util.UUID;
 
 import de.greenrobot.event.EventBus;
 
 /**
- * Created by Rami MARTIN on 13/04/2014.
+ * Created by Rami on 16/06/2017.
  */
-public class BluetoothClient implements Runnable {
+public class BluetoothClient extends BluetoothRunnable {
 
-    private boolean CONTINUE_READ_WRITE = true;
+    private static final String TAG = BluetoothClient.class.getSimpleName();
 
-    private BluetoothAdapter mBluetoothAdapter;
+    private UUID mUUID;
     private BluetoothDevice mBluetoothDevice;
-    private UUID mUuid;
-    private String mAdressMac;
-
-    private BluetoothSocket mSocket;
-    private InputStream mInputStream;
-    private OutputStreamWriter mOutputStreamWriter;
-
     private BluetoothConnector mBluetoothConnector;
 
-    public BluetoothClient(BluetoothAdapter bluetoothAdapter, String adressMac) {
-        mBluetoothAdapter = bluetoothAdapter;
-        mAdressMac = adressMac;
-        mUuid = UUID.fromString("e0917680-d427-11e4-8830-" + bluetoothAdapter.getAddress().replace(":", ""));
+    private boolean KEEP_TRYING_CONNEXION;
+
+    public BluetoothClient(BluetoothAdapter bluetoothAdapter, String uuiDappIdentifier, String adressMacServer, Activity activity, BluetoothManager.MessageMode messageMode) {
+        super(bluetoothAdapter, uuiDappIdentifier, activity, messageMode);
+        mServerAddress = adressMacServer;
+        mUUID = UUID.fromString(uuiDappIdentifier + "-" + mMyAdressMac.replace(":", ""));
+        KEEP_TRYING_CONNEXION = true;
     }
 
     @Override
-    public void run() {
+    public void waitForConnection() {
 
-        mBluetoothDevice = mBluetoothAdapter.getRemoteDevice(mAdressMac);
-//        List<UUID> uuidCandidates = new ArrayList<UUID>();
-//        uuidCandidates.add(mUuid);
+        mBluetoothDevice = mBluetoothAdapter.getRemoteDevice(mServerAddress);
 
-        while(mInputStream == null){
-            mBluetoothConnector = new BluetoothConnector(mBluetoothDevice, true, mBluetoothAdapter, mUuid);
+        while (mInputStream == null && CONTINUE_READ_WRITE && KEEP_TRYING_CONNEXION) {
+            mBluetoothConnector = new BluetoothConnector(mBluetoothDevice, false, mBluetoothAdapter, mUUID);
 
             try {
                 mSocket = mBluetoothConnector.connect().getUnderlyingSocket();
                 mInputStream = mSocket.getInputStream();
             } catch (IOException e1) {
-                Log.e("", "===> mSocket IOException", e1);
-                EventBus.getDefault().post(new ClientConnectionFail());
+                Log.e("", "===> mSocket IOException : "+ e1.getMessage());
+                //EventBus.getDefault().post(new ClientConnectionFail(mServerAddress));
                 e1.printStackTrace();
             }
         }
 
         if (mSocket == null) {
-            Log.e("", "===> mSocket == Null");
+            Log.e("", "===> mSocket IS NULL");
             return;
         }
-
-        try {
-
-            mOutputStreamWriter = new OutputStreamWriter(mSocket.getOutputStream());
-
-            int bufferSize = 1024;
-            int bytesRead = -1;
-            byte[] buffer = new byte[bufferSize];
-
-            EventBus.getDefault().post(new ClientConnectionSuccess());
-
-            while (CONTINUE_READ_WRITE) {
-
-                final StringBuilder sb = new StringBuilder();
-                bytesRead = mInputStream.read(buffer);
-                if (bytesRead != -1) {
-                    String result = "";
-                    while ((bytesRead == bufferSize) && (buffer[bufferSize] != 0)) {
-                        result = result + new String(buffer, 0, bytesRead);
-                        bytesRead = mInputStream.read(buffer);
-                    }
-                    result = result + new String(buffer, 0, bytesRead);
-                    sb.append(result);
-                }
-
-                 EventBus.getDefault().post(new BluetoothCommunicator(sb.toString()));
-
-            }
-        } catch (IOException e) {
-            Log.e("", "===> Client run");
-            e.printStackTrace();
-            EventBus.getDefault().post(new ClientConnectionFail());
-        }
     }
 
-    public void write(String message) {
-        try {
-            mOutputStreamWriter.write(message);
-            mOutputStreamWriter.flush();
-        } catch (IOException e) {
-            Log.e("", "===> Client write");
-            e.printStackTrace();
-        }
+    @Override
+    public void intiObjReader() throws IOException {
     }
 
-    public void closeConnexion() {
-        if (mSocket != null) {
-            try {
-                mInputStream.close();
-                mInputStream = null;
-                mOutputStreamWriter.close();
-                mOutputStreamWriter = null;
-                mSocket.close();
-                mSocket = null;
-                mBluetoothConnector.close();
-            } catch (Exception e) {
-                Log.e("", "===> Client closeConnexion");
-            }
-            CONTINUE_READ_WRITE = false;
-        }
+    @Override
+    public void onConnectionSucess() {
+        EventBus.getDefault().post(new ClientConnectionSuccess());
+    }
+
+    @Override
+    public void onConnectionFail() {
+        EventBus.getDefault().post(new ClientConnectionFail(mServerAddress));
+    }
+
+    @Override
+    public void closeConnection() {
+        KEEP_TRYING_CONNEXION = false;
+        super.closeConnection();
     }
 }
