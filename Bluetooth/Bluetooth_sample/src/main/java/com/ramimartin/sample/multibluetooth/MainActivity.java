@@ -1,6 +1,9 @@
 package com.ramimartin.sample.multibluetooth;
 
+import android.Manifest;
 import android.bluetooth.BluetoothDevice;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
@@ -23,6 +26,8 @@ import butterknife.OnClick;
 
 
 public class MainActivity extends BluetoothFragmentActivity implements DiscoveredDialogFragment.DiscoveredDialogListener {
+
+    private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
 
     @InjectView(R.id.listview)
     ListView mListView;
@@ -50,9 +55,31 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        mListLog = new ArrayList<String>();
-        mAdapter = new ArrayAdapter<String>(this, R.layout.item_console, mListLog);
+        mListLog = new ArrayList<>();
+        mAdapter = new ArrayAdapter<>(this, R.layout.item_console, mListLog);
         mListView.setAdapter(mAdapter);
+
+        //***** IMPORTANT FOR ANDROID SDK >= 6.0 *****//
+        if (Build.VERSION.SDK_INT >= 23) {
+            int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
+            permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_COARSE_LOCATION);
+            } else {
+                // TODO stuff if u need
+            }
+        } else {
+            // TODO stuff if u need
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_COARSE_LOCATION: {
+                // TODO stuff if u need
+            }
+        }
     }
 
     @Override
