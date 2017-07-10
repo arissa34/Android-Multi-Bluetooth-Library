@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.ramimartin.multibluetooth.bluetooth.manager.BluetoothManager;
+import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorBytes;
+import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorObject;
 import com.ramimartin.multibluetooth.bus.BluetoothCommunicatorString;
 import com.ramimartin.multibluetooth.bus.BondedDevice;
 import com.ramimartin.multibluetooth.bus.ClientConnectionFail;
@@ -110,6 +112,10 @@ public abstract class BluetoothActivity extends Activity {
         mBluetoothManager.createClient(addressMac);
     }
 
+    public void setMessageMode(BluetoothManager.MessageMode messageMode){
+        mBluetoothManager.setMessageMode(messageMode);
+    }
+
     public void sendMessageStringToAll(String message){
         mBluetoothManager.sendStringMessageForAll(message);
     }
@@ -141,7 +147,9 @@ public abstract class BluetoothActivity extends Activity {
     public abstract void onServeurConnectionSuccess();
     public abstract void onServeurConnectionFail();
     public abstract void onBluetoothStartDiscovery();
-    public abstract void onBluetoothCommunicator(String messageReceive);
+    public abstract void onBluetoothMsgStringReceived(String message);
+    public abstract void onBluetoothMsgObjectReceived(Object message);
+    public abstract void onBluetoothMsgBytesReceived(byte[] message);
     public abstract void onBluetoothNotAviable();
 
     public void onEventMainThread(BluetoothDevice device){
@@ -171,7 +179,15 @@ public abstract class BluetoothActivity extends Activity {
     }
 
     public void onEventMainThread(BluetoothCommunicatorString event){
-        onBluetoothCommunicator(event.mMessageReceive);
+        onBluetoothMsgStringReceived(event.mMessageReceive);
+    }
+
+    public void onEventMainThread(BluetoothCommunicatorObject event){
+        onBluetoothMsgObjectReceived(event.mObject);
+    }
+
+    public void onEventMainThread(BluetoothCommunicatorBytes event){
+        onBluetoothMsgBytesReceived(event.mBytesReceive);
     }
 
     public void onEventMainThread(BondedDevice event){

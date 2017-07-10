@@ -97,8 +97,8 @@
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="eventbus-2.2.0" level="project" />
-    <orderEntry type="library" exported="" name="AndroidMultiBluetoothLibrary-2.0.3-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="butterknife-6.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-r6" level="project" />
+    <orderEntry type="library" exported="" name="AndroidMultiBluetoothLibrary-2.0.4-SNAPSHOT" level="project" />
   </component>
 </module>

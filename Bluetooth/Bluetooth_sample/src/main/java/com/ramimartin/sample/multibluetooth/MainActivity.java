@@ -71,6 +71,8 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
         } else {
             // TODO stuff if u need
         }
+
+        setMessageMode(BluetoothManager.MessageMode.String);
     }
 
     @Override
@@ -143,6 +145,21 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
     }
 
     @Override
+    public void onBluetoothMsgStringReceived(String messageReceive) {
+        setLogText("===> receive msg : " + messageReceive);
+    }
+
+    @Override
+    public void onBluetoothMsgObjectReceived(Object o) {
+
+    }
+
+    @Override
+    public void onBluetoothMsgBytesReceived(byte[] bytes) {
+
+    }
+
+    @Override
     public void onBluetoothDeviceFound(BluetoothDevice device) {
         if(getTypeBluetooth() == BluetoothManager.TypeBluetooth.Server) {
             setLogText("===> Device detected and Thread Server created for this address : " + device.getAddress());
@@ -181,11 +198,6 @@ public class MainActivity extends BluetoothFragmentActivity implements Discovere
     @Override
     public void onServeurConnectionFail() {
         setLogText("===> Serveur Connexion fail !");
-    }
-
-    @Override
-    public void onBluetoothCommunicator(String messageReceive) {
-        setLogText("===> receive msg : " + messageReceive);
     }
 
     @Override

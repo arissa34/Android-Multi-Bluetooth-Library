@@ -38,7 +38,7 @@ dependencies {
 
     compile 'de.greenrobot:eventbus:2.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.4-SNAPSHOT'
 }
 
 repositories {
