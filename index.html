@@ -92,7 +92,15 @@ public class MainActivity extends BluetoothActivity {
     }
 
     @Override
-    public void onBluetoothCommunicator(String messageReceive) {
+    public void onBluetoothMsgStringReceived(String messageReceive) {
+    }
+
+    @Override
+    public void onBluetoothMsgObjectReceived(Object o) {
+    }
+
+    @Override
+    public void onBluetoothMsgBytesReceived(byte[] bytes) {
     }
 
     @Override
@@ -176,7 +184,7 @@ selectClientMode();</code></pre>
   background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));border-radius: 5px;
   border: 1px solid #d2d2d2;
-  box-shadow: inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.3-SNAPSHOT.jar"><strong>Android Multi Bluetooth Library V2.0.3 JAR</strong></a><br><br>
+  box-shadow: inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.4-SNAPSHOT.jar"><strong>Android Multi Bluetooth Library V2.0.4 JAR</strong></a><br><br>
             <p></p>
             <p>The source code to the library and sample application as well as this website is <a target="_blank" href="https://github.com/arissa34/Android-Multi-Bluetooth-Library">available on GitHub</a>.</p>
 <h4>MAVEN</h4>
@@ -185,7 +193,7 @@ selectClientMode();</code></pre>
     &lt;dependency>
       &lt;groupId>com.ramimartin.multibluetooth&lt;/groupId>
       &lt;artifactId>AndroidMultiBluetoothLibrary&lt;/artifactId>
-      &lt;version>2.0.3-SNAPSHOT&lt;/version>
+      &lt;version>2.0.4-SNAPSHOT&lt;/version>
     &lt;/dependency>
   &lt;/dependencies>
 
@@ -205,7 +213,7 @@ selectClientMode();</code></pre>
 }
 
 dependencies {
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.4-SNAPSHOT'
 }</code></pre>
  
  <h3>This library is used in these applications :</h3>
