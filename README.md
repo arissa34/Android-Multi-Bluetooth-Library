@@ -2,7 +2,7 @@
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android%20Multi%20Bluetooth%20Library-green.svg?style=flat)](https://android-arsenal.com/details/1/1954)
 
-This library allows you to easily create a socket bluetooth connection for multiple android devices with one server and 7 clients max. This library is compatible with the Android SDK 2.3 to N 
+This library allows you to easily create a socket bluetooth connection for multiple android devices with one server and 7 clients max. This library is compatible with the Android SDK 2.3 to 8.0 
 
 [![Youtube video](http://img.youtube.com/vi/svzu2qd_fOo/0.jpg)](http://www.youtube.com/watch?v=svzu2qd_fOo)
 
@@ -17,7 +17,7 @@ Download __[the latest JAR][2]__  or grab via Maven:
     <dependency>
       <groupId>com.ramimartin.multibluetooth</groupId>
       <artifactId>AndroidMultiBluetoothLibrary</artifactId>
-      <version>2.0.3-SNAPSHOT</version>
+      <version>2.0.4-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.3-SNAPSHOT'
+    compile 'com.ramimartin.multibluetooth:AndroidMultiBluetoothLibrary:2.0.4-SNAPSHOT'
 }
 
 ```
@@ -63,4 +63,4 @@ License
     */
     
 [1]: http://arissa34.github.io/Android-Multi-Bluetooth-Library/
-[2]: https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.3-SNAPSHOT.jar
+[2]: https://github.com/arissa34/Android-Multi-Bluetooth-Library/raw/master/Bluetooth/Bluetooth_lib/target/AndroidMultiBluetoothLibrary-2.0.4-SNAPSHOT.jar
